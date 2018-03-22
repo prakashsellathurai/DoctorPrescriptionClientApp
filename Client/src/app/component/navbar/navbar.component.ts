@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../service/auth.service';
+import { Observable } from 'rxjs/Observable';
 
 
 @Component({
@@ -8,8 +9,10 @@ import { AuthService } from '../../service/auth.service';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
-
-  constructor(private angularfireauth: AuthService) { }
+user$: Observable<firebase.User>;
+  constructor(private angularfireauth: AuthService) {
+    this.user$ = angularfireauth.user$;
+  }
 
   ngOnInit() {
   }

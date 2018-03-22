@@ -2,17 +2,20 @@ import { Injectable } from '@angular/core';
 import {AngularFireAuth } from 'angularfire2/auth';
 import { Observable } from 'rxjs/Observable';
 import * as firebase from 'firebase';
+import { ActivatedRoute } from '@angular/router';
 @Injectable()
 export class AuthService {
   user$: Observable<firebase.User>;
-
-  constructor(public angularFireAuth: AngularFireAuth) {
+  
+  constructor(public angularFireAuth: AngularFireAuth , private route: ActivatedRoute) {
     this.user$ = angularFireAuth.authState;
   }
 isAdmin() {
 
 }
 login() {
+let returnUrl =  this.route.snapshot.queryParamMap.get('returnUrl') || '/';
+localStorage.setItem('returnUrl', returnUrl);
   this.angularFireAuth.auth.signInWithRedirect(new firebase.auth.GoogleAuthProvider());
 }
 

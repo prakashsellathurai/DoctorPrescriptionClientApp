@@ -19,6 +19,8 @@ import { AdminTransactionsComponent } from './component/admin/transactions/trans
 import { AdminDashboardComponent } from './component/admin/dashboard/dashboard.component';
 import { AdminProductsComponent } from './component/admin/products/products.component';
 
+import { AuthService } from './service/auth.service';
+import { AuthGuardService } from './service/auth-guard.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,7 +36,7 @@ import { AdminProductsComponent } from './component/admin/products/products.comp
     AdminProductsComponent
   ],
   imports: [
-  BrowserModule,
+   BrowserModule,
   AngularFireModule.initializeApp(environment.firebase),
   AngularFireDatabaseModule,
   AngularFireAuthModule,
@@ -47,29 +49,33 @@ import { AdminProductsComponent } from './component/admin/products/products.comp
       path: 'products', component: ProductsComponent
     },
     {
-      path: 'checkout', component: CheckoutComponent
-    },
-    {
-      path: 'printpage', component: PrintpageComponent
-    },
-    {
-      path: 'myprescriptions', component: MyprescriptionsComponent
-    },
-    {
       path: 'login', component: LoginComponent
     },
     {
-      path: 'admin/dashboard', component: AdminDashboardComponent
+      path: 'checkout', component: CheckoutComponent  , canActivate: [AuthGuardService]
     },
     {
-      path: 'admin/products' , component: AdminProductsComponent
+      path: 'printpage', component: PrintpageComponent  , canActivate: [AuthGuardService]
     },
     {
-      path: 'admin/transactions' , component: AdminTransactionsComponent
+      path: 'myprescriptions', component: MyprescriptionsComponent   , canActivate: [AuthGuardService]
+    },
+
+    {
+      path: 'admin/dashboard', component: AdminDashboardComponent  , canActivate: [AuthGuardService]
+    },
+    {
+      path: 'admin/products' , component: AdminProductsComponent  , canActivate: [AuthGuardService]
+    },
+    {
+      path: 'admin/transactions' , component: AdminTransactionsComponent , canActivate: [AuthGuardService]
     }
   ])
   ],
-  providers: [],
+  providers: [
+    AuthService,
+    AuthGuardService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
