@@ -1,15 +1,20 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import {AngularFireModule } from 'angularfire2';
-import { environment } from '../environments/environment';
 import { RouterModule } from '@angular/router';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
+
+import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { AngularFireAuthModule } from 'angularfire2/auth';
+
+import { environment } from '../environments/environment';
+
 import { AppComponent } from './app.component';
 import { LoginComponent } from './component/login/login.component';
 import { DashboardComponent } from './component/dashboard/dashboard.component';
 import { CheckoutComponent } from './component/checkout/checkout.component';
-import { AngularFireDatabaseModule } from 'angularfire2/database';
-import { AngularFireAuthModule } from 'angularfire2/auth';
 import { NavbarComponent } from './component/navbar/navbar.component';
 import { ProductsComponent } from './component/products/products.component';
 import { PrintpageComponent } from './component/printpage/printpage.component';
@@ -25,6 +30,11 @@ import { AdminAuthGuardService } from './service/admin-auth-guard.service';
 import { UserService } from './service/user.service';
 import { MedicineService } from './service/medicine.service';
 import { ProductFormComponent } from './component/admin/product-form/product-form.component';
+import { CategoryServiceService } from './service/category-service.service';
+import { ProductService } from './service/product.service';
+
+import { DataTableModule } from 'angular5-data-table';
+import {MatTableModule} from '@angular/material/table';
 
 @NgModule({
   declarations: [
@@ -40,17 +50,19 @@ import { ProductFormComponent } from './component/admin/product-form/product-for
     AdminDashboardComponent,
     AdminProductsComponent,
     ProductFormComponent,
-  
   ],
   imports: [
   BrowserModule,
+  FormsModule,
+  MatTableModule,
+  DataTableModule,
   AngularFireDatabaseModule,
   AngularFireAuthModule,
   AngularFireModule.initializeApp(environment.firebase),
   NgbModule.forRoot(),
   RouterModule.forRoot([
     {
-      path: '', component: DashboardComponent
+      path: '', component: ProductsComponent
     },
     {
       path: 'products', component: ProductsComponent
@@ -72,10 +84,13 @@ import { ProductFormComponent } from './component/admin/product-form/product-for
       path: 'admin/dashboard', component: AdminDashboardComponent  , canActivate: [AuthGuardService, AdminAuthGuardService]
     },
     {
-      path: 'admin/products' , component: AdminProductsComponent  , canActivate: [AuthGuardService, AdminAuthGuardService]
+      path: 'admin/products/new' , component: ProductFormComponent  , canActivate: [AuthGuardService, AdminAuthGuardService]
     },
     {
-      path: 'admin/products/new' , component: ProductFormComponent  , canActivate: [AuthGuardService, AdminAuthGuardService]
+      path: 'admin/products/:id' , component: ProductFormComponent  , canActivate: [AuthGuardService, AdminAuthGuardService]
+    },
+    {
+      path: 'admin/products' , component: AdminProductsComponent  , canActivate: [AuthGuardService, AdminAuthGuardService]
     },
     {
       path: 'admin/transactions' , component: AdminTransactionsComponent , canActivate: [AuthGuardService, AdminAuthGuardService]
@@ -87,7 +102,9 @@ import { ProductFormComponent } from './component/admin/product-form/product-for
     AuthGuardService,
     UserService,
     AdminAuthGuardService,
-    MedicineService
+    MedicineService,
+    CategoryServiceService,
+    ProductService,
   ],
   bootstrap: [AppComponent]
 })
