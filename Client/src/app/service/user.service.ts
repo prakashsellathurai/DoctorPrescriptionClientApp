@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { User } from '../model/user';
+import { AppUser } from '../model/user';
 import * as firebase from 'firebase';
-import { AngularFireDatabase } from 'angularfire2/database';
+import { AngularFireDatabase , FirebaseObjectObservable } from 'angularfire2/database';
 // import FirebaseObjectObservable as  FirebaseObjectObservable from 'angularfire2/database';
 @Injectable()
 export class UserService {
@@ -14,20 +14,15 @@ saveUser(user: firebase.User) {
     }
   );
 }
-getUser(uid: string ) {
+savelocal(userObject: firebase.User) {
+   this.get(userObject.uid).subscribe(user => {
+    console.log(user);
+    localStorage.setItem('user', JSON.stringify(user));
+    return user;
+  });
+ 
+}
+get(uid: string ): FirebaseObjectObservable<AppUser> {
  return this.db.object('/users/' + uid);
 }
-deleteUser(uid: string) {
- return this.db.object('/users/' + uid).remove();
 }
-updateUser(user: firebase.User) {
- this.db.object('/users/' + user.uid ).update({
-   isAdmin: true
- });
-}
-getUid(user: firebase.User) {
-// return this.db.list('/users/', res => res.orderByChild('name').equalTo(user.displayName)).snapshotChanges();
-}
-
-}
- 

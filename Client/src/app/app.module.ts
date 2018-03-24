@@ -21,6 +21,11 @@ import { AdminProductsComponent } from './component/admin/products/products.comp
 
 import { AuthService } from './service/auth.service';
 import { AuthGuardService } from './service/auth-guard.service';
+import { AdminAuthGuardService } from './service/admin-auth-guard.service';
+import { UserService } from './service/user.service';
+import { MedicineService } from './service/medicine.service';
+import { ProductFormComponent } from './component/admin/product-form/product-form.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,13 +38,15 @@ import { AuthGuardService } from './service/auth-guard.service';
     MyprescriptionsComponent,
     AdminTransactionsComponent,
     AdminDashboardComponent,
-    AdminProductsComponent
+    AdminProductsComponent,
+    ProductFormComponent,
+  
   ],
   imports: [
-   BrowserModule,
-  AngularFireModule.initializeApp(environment.firebase),
+  BrowserModule,
   AngularFireDatabaseModule,
   AngularFireAuthModule,
+  AngularFireModule.initializeApp(environment.firebase),
   NgbModule.forRoot(),
   RouterModule.forRoot([
     {
@@ -62,19 +69,25 @@ import { AuthGuardService } from './service/auth-guard.service';
     },
 
     {
-      path: 'admin/dashboard', component: AdminDashboardComponent  , canActivate: [AuthGuardService]
+      path: 'admin/dashboard', component: AdminDashboardComponent  , canActivate: [AuthGuardService, AdminAuthGuardService]
     },
     {
-      path: 'admin/products' , component: AdminProductsComponent  , canActivate: [AuthGuardService]
+      path: 'admin/products' , component: AdminProductsComponent  , canActivate: [AuthGuardService, AdminAuthGuardService]
     },
     {
-      path: 'admin/transactions' , component: AdminTransactionsComponent , canActivate: [AuthGuardService]
+      path: 'admin/products/new' , component: ProductFormComponent  , canActivate: [AuthGuardService, AdminAuthGuardService]
+    },
+    {
+      path: 'admin/transactions' , component: AdminTransactionsComponent , canActivate: [AuthGuardService, AdminAuthGuardService]
     }
   ])
   ],
   providers: [
     AuthService,
-    AuthGuardService
+    AuthGuardService,
+    UserService,
+    AdminAuthGuardService,
+    MedicineService
   ],
   bootstrap: [AppComponent]
 })

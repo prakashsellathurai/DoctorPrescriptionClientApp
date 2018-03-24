@@ -2,11 +2,14 @@ import { Injectable } from '@angular/core';
 import { Medicine } from '../model/medicine';
 import * as firebase from 'firebase';
 import { AngularFireDatabase } from 'angularfire2/database';
+import { Observable } from 'rxjs/Observable';
 
 @Injectable()
 export class MedicineService {
-
-  constructor(private db: AngularFireDatabase) { }
+  medicines: Observable<any[]>;
+  constructor(private db: AngularFireDatabase) {
+    
+  }
 
   save(medicine: Medicine) {
   return this.db.object('/medicines/' + medicine.name).update(

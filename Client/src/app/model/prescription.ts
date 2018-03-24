@@ -1,8 +1,8 @@
 import { Medicine } from './medicine';
-import { User } from './user';
+import { AppUser } from './user';
 
 export interface Prescription {
 id: string;
-to: Array<User>;
+to: Array<AppUser>;
 content: Array<Medicine>;
 }

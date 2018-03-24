@@ -1,6 +1,5 @@
-export interface User {
+export interface AppUser {
     email: string;
-    isAdmin?: boolean;
+    isAdmin: boolean;
     name: string;
-    password?: string;
 }
