@@ -1,7 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ProductService } from '../../../service/product.service';
 import { Subscription } from 'rxjs/Subscription';
-import { Product } from '../../../model/product';
+import { Medicine } from '../../../model/medicine';
 import { DataTableResource } from 'angular-4-data-table';
 
 @Component({
@@ -10,10 +10,10 @@ import { DataTableResource } from 'angular-4-data-table';
   styleUrls: ['./products.component.css']
 })
 export class AdminProductsComponent implements OnInit, OnDestroy {
-products: Product[];
+products: Medicine[];
 subscription: Subscription;
-tableResource: DataTableResource<Product>;
-items: Product[] = [];
+tableResource: DataTableResource<Medicine>;
+items: Medicine[] = [];
 itemCount: number;
 
   constructor(private productService: ProductService) {
@@ -24,7 +24,7 @@ itemCount: number;
   }
 
 
-  private intializeTable(products: Product[]) {
+  private intializeTable(products: Medicine[]) {
     this.tableResource = new DataTableResource(products);
     this.tableResource.query({ offset: 0 , limit: 10})
     .then(items => this.items = items );

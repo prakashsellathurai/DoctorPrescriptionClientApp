@@ -1,6 +1,6 @@
 export interface Medicine {
-    name: string;
+    $key: string;
+    title: string;
     price: number;
-    imageurl ?: string;
-    description ?: string;
+    description: string;
 }

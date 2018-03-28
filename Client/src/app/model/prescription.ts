@@ -1,8 +1,5 @@
-import { Medicine } from './medicine';
-import { AppUser } from './user';
+import { PrescriptionItem } from './PrescriptionItem';
 
 export interface Prescription {
-id: string;
-to: Array<AppUser>;
-content: Array<Medicine>;
+items: PrescriptionItem[];
 }

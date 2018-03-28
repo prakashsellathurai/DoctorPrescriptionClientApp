@@ -20,7 +20,6 @@ savelocal(userObject: firebase.User) {
     localStorage.setItem('user', JSON.stringify(user));
     return user;
   });
- 
 }
 get(uid: string ): FirebaseObjectObservable<AppUser> {
  return this.db.object('/users/' + uid);

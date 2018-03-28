@@ -23,18 +23,56 @@ import { MyprescriptionsComponent } from './component/myprescriptions/myprescrip
 import { AdminTransactionsComponent } from './component/admin/transactions/transactions.component';
 import { AdminDashboardComponent } from './component/admin/dashboard/dashboard.component';
 import { AdminProductsComponent } from './component/admin/products/products.component';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 import { AuthService } from './service/auth.service';
 import { AuthGuardService } from './service/auth-guard.service';
 import { AdminAuthGuardService } from './service/admin-auth-guard.service';
 import { UserService } from './service/user.service';
-import { MedicineService } from './service/medicine.service';
 import { ProductFormComponent } from './component/admin/product-form/product-form.component';
 import { CategoryServiceService } from './service/category-service.service';
 import { ProductService } from './service/product.service';
 
 import { DataTableModule } from 'angular5-data-table';
-import {MatTableModule} from '@angular/material/table';
+import {
+  MatAutocompleteModule,
+  MatButtonModule,
+  MatButtonToggleModule,
+  MatCardModule,
+  MatCheckboxModule,
+  MatChipsModule,
+  MatDatepickerModule,
+  MatDialogModule,
+  MatDividerModule,
+  MatExpansionModule,
+  MatGridListModule,
+  MatIconModule,
+  MatInputModule,
+  MatListModule,
+  MatMenuModule,
+  MatNativeDateModule,
+  MatPaginatorModule,
+  MatProgressBarModule,
+  MatProgressSpinnerModule,
+  MatRadioModule,
+  MatRippleModule,
+  MatSelectModule,
+  MatSidenavModule,
+  MatSliderModule,
+  MatSlideToggleModule,
+  MatSnackBarModule,
+  MatSortModule,
+  MatStepperModule,
+  MatTableModule,
+  MatTabsModule,
+  MatToolbarModule,
+  MatTooltipModule,
+} from '@angular/material';
+import { ProductCardComponent } from './component/products/product-card/product-card.component';
+import { PrescriptionService } from './service/prescription.service';
+
+
+
 
 @NgModule({
   declarations: [
@@ -50,11 +88,78 @@ import {MatTableModule} from '@angular/material/table';
     AdminDashboardComponent,
     AdminProductsComponent,
     ProductFormComponent,
+    ProductCardComponent,
+  ],
+  exports: [
+    MatAutocompleteModule,
+    MatButtonModule,
+    MatButtonToggleModule,
+    MatCardModule,
+    MatCheckboxModule,
+    MatChipsModule,
+    MatStepperModule,
+    MatDatepickerModule,
+    MatDialogModule,
+    MatDividerModule,
+    MatExpansionModule,
+    MatGridListModule,
+    MatIconModule,
+    MatInputModule,
+    MatListModule,
+    MatMenuModule,
+    MatNativeDateModule,
+    MatPaginatorModule,
+    MatProgressBarModule,
+    MatProgressSpinnerModule,
+    MatRadioModule,
+    MatRippleModule,
+    MatSelectModule,
+    MatSidenavModule,
+    MatSliderModule,
+    MatSlideToggleModule,
+    MatSnackBarModule,
+    MatSortModule,
+    MatTableModule,
+    MatTabsModule,
+    MatToolbarModule,
+    MatTooltipModule,
   ],
   imports: [
   BrowserModule,
   FormsModule,
-  MatTableModule,
+   MatAutocompleteModule,
+    MatButtonModule,
+    MatButtonToggleModule,
+    MatCardModule,
+    MatCheckboxModule,
+    MatChipsModule,
+    MatStepperModule,
+    MatDatepickerModule,
+    MatDialogModule,
+    MatDividerModule,
+    MatExpansionModule,
+    MatGridListModule,
+    MatIconModule,
+    MatInputModule,
+    MatListModule,
+    MatMenuModule,
+    MatNativeDateModule,
+    MatPaginatorModule,
+    MatProgressBarModule,
+    MatProgressSpinnerModule,
+    MatRadioModule,
+    MatRippleModule,
+    MatSelectModule,
+    MatSidenavModule,
+    MatSliderModule,
+    MatSlideToggleModule,
+    MatSnackBarModule,
+    MatSortModule,
+    MatTableModule,
+    MatTabsModule,
+    MatToolbarModule,
+    MatTooltipModule,
+    BrowserAnimationsModule,
   DataTableModule,
   AngularFireDatabaseModule,
   AngularFireAuthModule,
@@ -62,7 +167,7 @@ import {MatTableModule} from '@angular/material/table';
   NgbModule.forRoot(),
   RouterModule.forRoot([
     {
-      path: '', component: ProductsComponent
+      path: '', component: DashboardComponent
     },
     {
       path: 'products', component: ProductsComponent
@@ -102,9 +207,9 @@ import {MatTableModule} from '@angular/material/table';
     AuthGuardService,
     UserService,
     AdminAuthGuardService,
-    MedicineService,
     CategoryServiceService,
     ProductService,
+    PrescriptionService
   ],
   bootstrap: [AppComponent]
 })
