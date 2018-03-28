@@ -1,66 +1,8 @@
 <div class="row">
   <div class="col-5">
-      <mat-tab-group>
-          <mat-tab label="Medicines">      
-            <mat-card class="mat-elevation-z8">
-              <mat-selection-list  #selectedItems>
-                  <mat-list-option >
-                  
-                  </mat-list-option>
-                </mat-selection-list>
-            </mat-card>
-    </mat-tab>
- </mat-tab-group>
-
+    <app-prescription></app-prescription>
   </div>
   <div class="col">
-
-    <div class="example-header">
-      <mat-form-field>
-        <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Search Medicines Here....">
-      </mat-form-field> 
-    </div>
-    
-    <div class="example-container mat-elevation-z8">
-    
-      <mat-table [dataSource]="dataSource" matSort>
-    
-
-        <ng-container matColumnDef="select">
-          <mat-header-cell *matHeaderCellDef  mat-sort-header>
-       
-          </mat-header-cell>
-          <mat-cell *matCellDef="let row"> 
-             <button mat-icon-button (click) = "onSelect(row)">
-              <mat-icon >add_circle_outline</mat-icon>
-            </button>
-              </mat-cell>
-        </ng-container>
-        
-        <ng-container matColumnDef="title">
-          <mat-header-cell *matHeaderCellDef mat-sort-header>TITLE</mat-header-cell>
-          <mat-cell *matCellDef="let row"> {{row.title}} </mat-cell>
-        </ng-container>
-    
-        <!-- Name Column -->
-        <ng-container matColumnDef="price">
-          <mat-header-cell *matHeaderCellDef mat-sort-header> PRICE </mat-header-cell>
-          <mat-cell *matCellDef="let row"> {{row.price}} </mat-cell>
-        </ng-container>
-    
-        <!-- Color Column -->
-        <ng-container matColumnDef="description">
-          <mat-header-cell *matHeaderCellDef mat-sort-header> DESCRIPTION </mat-header-cell>
-          <mat-cell *matCellDef="let row" [style.color]="row.color"> {{row.description}} </mat-cell>
-        </ng-container>
-    
-        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-        <mat-row *matRowDef="let row; columns: displayedColumns;">
-        </mat-row>
-      </mat-table>
-    
-      <mat-paginator  [pageSize]="10" [length]="products$.length" [pageSizeOptions]="[5, 10, 25, 100]" [showFirstLastButtons]="true"></mat-paginator>
-    </div>
-     
+ <app-product-list-table></app-product-list-table>
   </div>
 </div>

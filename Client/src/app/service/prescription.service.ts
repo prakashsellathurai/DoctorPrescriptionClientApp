@@ -3,6 +3,7 @@ import { AngularFireDatabase, FirebaseObjectObservable } from 'angularfire2/data
 import { Medicine } from '../model/medicine';
 import 'rxjs/add/operator/take';
 import { Prescription } from '../model/prescription';
+import { Observable } from 'rxjs/Observable';
 
 @Injectable()
 export class PrescriptionService {
@@ -23,6 +24,7 @@ selectedItems: any[] = [];
     let Id = await this.GetOrCreatePrescriptionId();
        return this.db.object('/Prescriptions/' + Id);
   }
+
 
   private async GetOrCreatePrescriptionId(): Promise<string> {
     let prescriptionId = localStorage.getItem('PrescriptionId');
@@ -45,11 +47,12 @@ selectedItems: any[] = [];
 
   }
 
+
+
   async getSelecteditems() {
     let Id = await this.GetOrCreatePrescriptionId();
-    return this.db.object('/Prescriptions/' + Id).switchMap(items => {
-      this.selectedItems = items;
-      return this.selectedItems;
+    return this.db.object('/Prescriptions/' + Id).subscribe(items => {
+      return items;
     });
   }
 }

@@ -70,6 +70,8 @@ import {
 } from '@angular/material';
 import { ProductCardComponent } from './component/products/product-card/product-card.component';
 import { PrescriptionService } from './service/prescription.service';
+import { PrescriptionComponent } from './component/prescription/prescription.component';
+import { ProductListTableComponent } from './component/products/product-list-table/product-list-table.component';
 
 
 
@@ -89,6 +91,8 @@ import { PrescriptionService } from './service/prescription.service';
     AdminProductsComponent,
     ProductFormComponent,
     ProductCardComponent,
+    PrescriptionComponent,
+    ProductListTableComponent,
   ],
   exports: [
     MatAutocompleteModule,
@@ -180,6 +184,9 @@ import { PrescriptionService } from './service/prescription.service';
     },
     {
       path: 'printpage', component: PrintpageComponent  , canActivate: [AuthGuardService]
+    },
+    {
+      path: 'prescription', component: PrescriptionComponent  , canActivate: [AuthGuardService]
     },
     {
       path: 'myprescriptions', component: MyprescriptionsComponent   , canActivate: [AuthGuardService]
