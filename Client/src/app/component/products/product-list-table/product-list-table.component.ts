@@ -1,7 +1,6 @@
-import { Component, ViewChild, OnInit, OnDestroy, AfterViewInit } from '@angular/core';
+import { Component, ViewChild,  AfterViewInit, Input } from '@angular/core';
 import { MatPaginator, MatSort} from '@angular/material';
 import { PrescriptionService } from '../../../service/prescription.service';
-import { Subscription } from 'rxjs/Subscription';
 import { ProductService } from '../../../service/product.service';
 import { MatTableDataSource } from '@angular/material/table';
 
@@ -14,9 +13,9 @@ const allowMultiSelect = true;
   templateUrl: './product-list-table.component.html',
   styleUrls: ['./product-list-table.component.css']
 })
-export class ProductListTableComponent implements OnInit, AfterViewInit, OnDestroy {
-  subscription: Subscription;
-  note: any;
+export class ProductListTableComponent  {
+ 
+
   products$;
   displayedColumns = ['select', 'title', 'price', 'description'];
   dataSource: MatTableDataSource<any>;
@@ -24,7 +23,6 @@ export class ProductListTableComponent implements OnInit, AfterViewInit, OnDestr
 
   @ViewChild(MatPaginator) paginator: MatPaginator ;
   @ViewChild(MatSort) sort: MatSort;
-
   constructor(
     public Productservice: ProductService,
     private Prescriptionservice: PrescriptionService,
@@ -37,17 +35,7 @@ export class ProductListTableComponent implements OnInit, AfterViewInit, OnDestr
     });
   }
   // tslint:disable-next-line:no-trailing-whitespace
-  ngAfterViewInit() {
-    this.dataSource.paginator = this.paginator;
-    this.dataSource.sort = this.sort;
-  }
-
-
-  async ngOnInit() {
-    this.subscription = (await this.Prescriptionservice.getPrescription())
-                   .subscribe(Note => this.note = Note);
-   }
-
+ 
 
    applyFilter(filterValue: string) {
     filterValue = filterValue.trim(); // Remove whitespace
@@ -60,7 +48,4 @@ export class ProductListTableComponent implements OnInit, AfterViewInit, OnDestr
     this.Prescriptionservice.addToNote(product);
    }
 
-   ngOnDestroy() {
-     this.subscription.unsubscribe();
-   }
 }

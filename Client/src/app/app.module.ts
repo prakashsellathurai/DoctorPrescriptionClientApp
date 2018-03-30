@@ -72,6 +72,7 @@ import { ProductCardComponent } from './component/products/product-card/product-
 import { PrescriptionService } from './service/prescription.service';
 import { PrescriptionComponent } from './component/prescription/prescription.component';
 import { ProductListTableComponent } from './component/products/product-list-table/product-list-table.component';
+import { PrescriptionEditComponent } from './component/products/prescription-edit/prescription-edit.component';
 
 
 
@@ -93,6 +94,7 @@ import { ProductListTableComponent } from './component/products/product-list-tab
     ProductCardComponent,
     PrescriptionComponent,
     ProductListTableComponent,
+    PrescriptionEditComponent,
   ],
   exports: [
     MatAutocompleteModule,

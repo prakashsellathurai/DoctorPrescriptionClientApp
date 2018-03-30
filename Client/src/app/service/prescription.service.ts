@@ -20,9 +20,13 @@ selectedItems: any[] = [];
   return this.db.object('/Prescriptions/' + prescriptionId + '/items' + productId);
   }
 
-  async getPrescription(): Promise<FirebaseObjectObservable<Prescription>> {
+  async getPrescription(): Promise<Observable<Prescription>> {
     let Id = await this.GetOrCreatePrescriptionId();
-       return this.db.object('/Prescriptions/' + Id);
+       return this.db.object('/Prescriptions/' + Id)
+       .map(x => {
+        let prescription =  new Prescription(x);
+        return prescription;
+       });
   }
 
 
@@ -36,16 +40,20 @@ selectedItems: any[] = [];
     return result.key;
   }
 
-
+async removefromNote(product: Medicine) {
+  this.updateItemQuantity(product , -1);
+}
 
  async addToNote(product: Medicine) {
-    let prescriptionId  = await this.GetOrCreatePrescriptionId();
-    let item$ = this.getItem(prescriptionId, product.$key);
-     item$.take(1).subscribe(item => {
-        item$.set({product: product , quantity: (item.quantity || 0) + 1});
-     });
-
-  }
+    this.updateItemQuantity(product , 1);
+    }
+private async updateItemQuantity(product: Medicine, change: number) {
+  let prescriptionId  = await this.GetOrCreatePrescriptionId();
+  let item$ = this.getItem(prescriptionId, product.$key);
+   item$.take(1).subscribe(item => {
+      item$.set({product: product , quantity: (item.quantity || 0) + change});
+   });
+}
 
 
 

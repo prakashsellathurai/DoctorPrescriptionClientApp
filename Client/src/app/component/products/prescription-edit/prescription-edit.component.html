@@ -1,0 +1,29 @@
+<ng-container>
+    <mat-tab-group>
+        <mat-tab label="Rx">
+             
+    <mat-accordion *ngFor="let item of Prescription.ItemTitleAndQuantity; let i=index">
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              {{item.title}}
+            </mat-panel-title>
+            <mat-panel-description>
+              Type your name and age
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+        </mat-expansion-panel>
+      </mat-accordion>
+    
+        </mat-tab>
+      </mat-tab-group>
+</ng-container>
+
+<!--       
+<p>
+  {{getTotalItems()}}
+</p>
+<p >
+{{item.title}}
+</p>
+-->
