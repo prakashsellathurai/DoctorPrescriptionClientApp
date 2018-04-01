@@ -1,0 +1,28 @@
+
+<div class="card">
+    <div class="card-body">
+      <h4>Patient Details</h4>
+<form #f="ngForm" (change)="valueChanged(f.value)">
+    <div class="form-group">
+      <label for=""><h6>Name</h6></label>
+      <input #name="ngModel" name="name" [(ngModel)]="PatientDetail.name"  type="text" class="form-control"  value=''>
+      <div class="alert alert-danger" *ngIf="name.touched && name.invalid">
+        <div *ngIf="name.errors.required">Name is required.</div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for=""><h6>Gender</h6></label>
+      <input #gender="ngModel" name="gender" [(ngModel)]="PatientDetail.gender" type="text" class="form-control" value='' >
+     
+    </div>
+    
+    <div class="form-group">
+      <label for=""><h6>DOB</h6></label>
+      <input #dob="ngModel" name="dob" [(ngModel)]="PatientDetail.dob" type="text" class="form-control"  value=''>
+     
+    </div>
+  
+  </form>
+    </div>
+    </div>
+    

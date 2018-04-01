@@ -19,12 +19,12 @@ selectedItems: any[] = [];
   }
 
   private getItem(prescriptionId: string, productId: string) {
-  return this.db.object('/Prescriptions/' + prescriptionId + '/items' + productId);
+  return this.db.object('/Prescriptions/' + prescriptionId + '/items/' + productId);
   }
 
   async getPrescription(): Promise<Observable<Prescription>> {
     const Id = await this.GetOrCreatePrescriptionId();
-       return this.db.object('/Prescriptions/' + Id)
+       return this.db.object('/Prescriptions/' + Id + '/items/')
        .map(x => {
         const prescription =  new Prescription(x);
         return prescription;
@@ -92,4 +92,9 @@ UpdatePrescriptionByRawTitle(title: string , change: number) {
   addTitle(title) { this.UpdatePrescriptionByRawTitle(title , 1); }
 
   removeTitle(title) { this.UpdatePrescriptionByRawTitle(title , -1); }
+
+  async ClearRx () {
+const RxId = await this.GetOrCreatePrescriptionId();
+this.db.object('/Prescriptions/' + RxId + '/items/').remove();
+  }
 }

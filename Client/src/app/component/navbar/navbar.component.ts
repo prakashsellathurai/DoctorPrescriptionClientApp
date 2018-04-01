@@ -12,7 +12,10 @@ import { AppUser } from '../../model/user';
 export class NavbarComponent implements OnInit {
 appUser: AppUser;
   constructor(private auth: AuthService) {
-    auth.appuser$.subscribe(appUser => this.appUser = appUser);
+    auth.appuser$.subscribe(appUser => {
+       this.appUser = appUser;
+       localStorage.setItem('user', this.appUser.name);
+      });
   }
 
 
@@ -20,6 +23,7 @@ appUser: AppUser;
   ngOnInit() {
    }
 logout() {
+  localStorage.removeItem('user');
   this.auth.logout();
 }
 }

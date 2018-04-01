@@ -1,38 +1,30 @@
-<h1>
-  Rx
-</h1>
-<ng-container *ngIf="prescription$ | async as prescription">
 
-<table class="table">
-  <thead>
-    <tr>
-      <th>Medicine</th>
-      <th>dosage</th>
-      <th>Quantity</th>
-    </tr>
-  </thead>
-  <tbody *ngIf="prescription.items">
-    <tr *ngFor="let item of prescription.items">
-      <td>
-        {{item.title}}
-      </td>
-      <td>
-          
-              <input matInput >
-          
-          
-      </td>
-      <td *ngIf="item.title"> 
-          <app-product-quantity [product]="item" [prescription]="prescription" ></app-product-quantity>
-      </td>
-    </tr>
-  </tbody>
-  <tfoot>
-    <tr>
-      <th></th>
-      <th></th>
-      <th *ngIf="prescription.totalItemsCount > 0"> TotalItems : {{prescription.totalItemsCount}}</th>
-    </tr>
-  </tfoot>
-</table>
-</ng-container>
+<div class="container">
+    <div class="row">
+      <div class="col">
+        <div class="card">
+          <div class="card-body">
+            Doctor : {{user}}
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-4">
+        <app-patient-detail-edit (patientDetailEdit)="HandlePatientDetail($event)"></app-patient-detail-edit>
+        <button (click)="generateQr()"class="btn btn-primary" style="margin-top:10px;">
+            generate QR
+          </button>
+      </div>
+      <div class="col">
+        
+            <ng-container >
+            <app-final-edittable ></app-final-edittable>
+            </ng-container>
+      </div>
+     
+    </div>
+  </div>
+
+
+

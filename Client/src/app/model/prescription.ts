@@ -8,10 +8,7 @@ constructor(public itemsMap: { [productId: string]: PrescriptionItem }) {
     // tslint:disable-next-line:forin
     for (const productId in itemsMap) {
         const item = itemsMap[productId];
-        const x = new PrescriptionItem();
-        Object.assign(x, item);
-        x.$key = productId;
-           this.items.push(x);
+        this.items.push(new PrescriptionItem({...item, $key: productId}));
         }
     }
 

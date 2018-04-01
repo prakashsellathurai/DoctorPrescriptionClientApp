@@ -2,6 +2,7 @@ import { Component, Input, OnInit} from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { Prescription } from '../../../model/prescription';
 import { Subscription } from 'rxjs/Subscription';
+import { PrescriptionService } from '../../../service/prescription.service';
 
 @Component({
   selector: 'app-prescription-edit',
@@ -17,7 +18,7 @@ export class PrescriptionEditComponent implements OnInit {
   ExpansionpanelItemPrice$;
   key;
 show = false;
-  constructor() {
+  constructor(private Prescriptionservice: PrescriptionService) {
 
   }
  ngOnInit() {
@@ -34,5 +35,5 @@ show = false;
    }
   checkPrescriptionexistence() { return (this.initialiseFetch()) ? true : false; }
   getTotalItems() { return this.Prescription.totalItemsCount; }
-
+  clearAll() { this.Prescriptionservice.ClearRx(); }
 }

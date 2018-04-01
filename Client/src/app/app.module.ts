@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule , ReactiveFormsModule} from '@angular/forms';
 import {AngularFireModule } from 'angularfire2';
 import { RouterModule } from '@angular/router';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -75,7 +75,10 @@ import { ProductListTableComponent } from './component/products/product-list-tab
 import { PrescriptionEditComponent } from './component/products/prescription-edit/prescription-edit.component';
 import { ExpansionPanelComponent } from './component/products/prescription-edit/expansion-panel/expansion-panel.component';
 import { ProductQuantityComponent } from './component/products/product-quantity/product-quantity.component';
-
+import { FinalEdittableComponent } from './component/checkout/final-edittable/final-edittable.component';
+import { PatientDetailEditComponent } from './component/checkout/patient-detail-edit/patient-detail-edit.component';
+import { FormBuilder } from '@angular/forms';
+import { StepperComponent } from './component/checkout/stepper/stepper.component';
 
 
 
@@ -99,6 +102,9 @@ import { ProductQuantityComponent } from './component/products/product-quantity/
     PrescriptionEditComponent,
     ExpansionPanelComponent,
     ProductQuantityComponent,
+    FinalEdittableComponent,
+    PatientDetailEditComponent,
+    StepperComponent,
   ],
   exports: [
     MatAutocompleteModule,
@@ -137,6 +143,7 @@ import { ProductQuantityComponent } from './component/products/product-quantity/
   imports: [
   BrowserModule,
   FormsModule,
+  ReactiveFormsModule,
    MatAutocompleteModule,
     MatButtonModule,
     MatButtonToggleModule,

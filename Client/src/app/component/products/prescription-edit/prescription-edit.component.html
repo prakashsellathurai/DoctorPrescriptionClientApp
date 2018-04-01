@@ -10,15 +10,30 @@
                             ></app-expansion-panel>
                      </mat-accordion>
                   
-                           <button
-                           *ngIf="show"
-                           routerLink="/checkout"
-                            class="btn btn-primary ">
-                             click to proceed
-                             <span class="badge badge-light">
-                                 {{ getTotalItems()}}
-                             </span>
-                           </button>
+                     <div class="row">
+                         <div class="col">
+                                <button
+                                *ngIf="show"
+                                (click)="clearAll()"
+                                 class="btn btn-danger ">
+                                  clear all
+                                </button>
+                        </div>
+                         <div class="col">
+                                <button
+                                *ngIf="show"
+                                routerLink="/checkout"
+                                 class="btn btn-primary ">
+                                  click to proceed
+                                  <span class="badge badge-light">
+                                      {{ getTotalItems()}}
+                                  </span>
+                                </button>
+                          
+                         </div>
+                         
+                     </div>
+                          
                            <ng-container #blankspace>
 
                            </ng-container>

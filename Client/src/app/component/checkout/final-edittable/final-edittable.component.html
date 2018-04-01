@@ -1,0 +1,57 @@
+
+
+<div class="card">
+    <div class="card-body">
+<ng-container *ngIf="prescription$ | async as prescription">
+  <div class="row">
+    <div class="col-10">
+       <h3>
+        Rx
+      </h3></div>
+      <div class="col-1">
+          <button  (click)="clearRx()" class="btn btn-light text-center">
+              clear All
+             </button>
+      </div>
+  </div>
+    
+    <table class="table" >
+        <thead>
+          <tr>
+            <th >Medicine</th>
+            <th class="text-center"><!--Dosage--></th> 
+            <th class="text-center">Quantity</th>
+          </tr>
+        </thead>
+        <tbody *ngIf="prescription.items">
+          <tr *ngFor="let item of prescription.items">
+            <td >
+              {{item.title}}
+            </td>
+            <td></td>
+          <!--   <td  class="text-center">
+                
+                    <input type="text" class="form-control" (change)="valueChanged(value)">
+                
+                
+            </td>-->
+            <td *ngIf="item.title" class="text-center"> 
+                <app-product-quantity [product]="item" [prescription]="prescription" ></app-product-quantity>
+            </td>
+          </tr>
+        </tbody>
+        <tfoot>
+          <tr>
+            <th>
+            
+            </th>
+            <th>
+          
+            </th>
+            <th  class="text-center" *ngIf="prescription.totalItemsCount > 0"> TotalItems : {{prescription.totalItemsCount}}</th>
+          </tr>
+        </tfoot>
+      </table>
+</ng-container>
+</div>
+</div>

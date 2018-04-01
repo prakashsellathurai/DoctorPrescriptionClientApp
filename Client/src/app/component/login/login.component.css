@@ -1,0 +1,16 @@
+.card {
+    display: block;
+    margin:  auto; /* Added */
+    text-align: center;
+    width: 25%;
+    height: 300px;
+}
+
+.card button {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}

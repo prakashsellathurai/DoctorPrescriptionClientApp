@@ -48,8 +48,8 @@
         </mat-table>
       
         <mat-paginator 
-                        [pageSize]="10" 
-                        [length]=" (products$.length) ? products$.length : 0" 
+                        [pageSize]="5" 
+                        [length]="products$.length" 
                         [pageSizeOptions]="[5, 10, 25, 100]"
                         [showFirstLastButtons]="true"></mat-paginator>
       </div>
