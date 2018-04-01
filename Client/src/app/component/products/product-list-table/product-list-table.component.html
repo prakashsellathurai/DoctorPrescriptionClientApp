@@ -15,9 +15,13 @@
          
             </mat-header-cell>
             <mat-cell *matCellDef="let row"> 
-               <button mat-icon-button (click) = "onSelect(row)">
-                <mat-icon >add_circle_outline</mat-icon>
+
+              <button mat-icon-button 
+              
+                   (click)="onSelect(row)">
+                   <mat-icon >add_circle_outline</mat-icon>
               </button>
+               
                 </mat-cell>
           </ng-container>
           
@@ -45,7 +49,7 @@
       
         <mat-paginator 
                         [pageSize]="10" 
-                        [length]="products$.length" 
+                        [length]=" (products$.length) ? products$.length : 0" 
                         [pageSizeOptions]="[5, 10, 25, 100]"
                         [showFirstLastButtons]="true"></mat-paginator>
       </div>

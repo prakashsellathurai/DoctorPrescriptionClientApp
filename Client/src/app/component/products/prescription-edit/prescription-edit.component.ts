@@ -1,4 +1,4 @@
-import { Component, Input} from '@angular/core';
+import { Component, Input, OnInit} from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { Prescription } from '../../../model/prescription';
 import { Subscription } from 'rxjs/Subscription';
@@ -9,17 +9,31 @@ import { Subscription } from 'rxjs/Subscription';
   styleUrls: ['./prescription-edit.component.css']
 })
 
-export class PrescriptionEditComponent  {
+export class PrescriptionEditComponent implements OnInit {
   @Input('Prescription') Prescription: Prescription;
   subscription: Subscription;
-  Prescription$;
-  constructor() { }
-  initialiseFetch() { return  this.Prescription; }
-  checkPrescriptionexistence() { return (this.initialiseFetch()) ? true : false; }
-  getTotalItems() {
-    console.log(this.Prescription);
-   return (this.checkPrescriptionexistence()) ? this.Prescription.totalItemsCount : 0;
-  }
- 
-}
+  ExpansionPanelItemTitle$;
+  ExpansionPanelItemQuantity$;
+  ExpansionpanelItemPrice$;
+  key;
+show = false;
+  constructor() {
 
+  }
+ ngOnInit() {
+  }
+  initialiseFetch() {
+    if (this.Prescription) {
+      this.ExpansionPanelItemTitle$ = this.Prescription.title;
+      this.ExpansionPanelItemQuantity$ = this.Prescription.quantity;
+      this.ExpansionpanelItemPrice$ = this.Prescription.Price;
+      this.key = this.Prescription.key;
+      this.show = (this.Prescription.totalItemsCount > 0) ? true : false;
+      return  (this.Prescription.items) ? true : false;
+         }
+   }
+  checkPrescriptionexistence() { return (this.initialiseFetch()) ? true : false; }
+  getTotalItems() { return this.Prescription.totalItemsCount; }
+  checkout() {
+  }
+}

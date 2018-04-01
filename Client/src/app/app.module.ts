@@ -73,6 +73,7 @@ import { PrescriptionService } from './service/prescription.service';
 import { PrescriptionComponent } from './component/prescription/prescription.component';
 import { ProductListTableComponent } from './component/products/product-list-table/product-list-table.component';
 import { PrescriptionEditComponent } from './component/products/prescription-edit/prescription-edit.component';
+import { ExpansionPanelComponent } from './component/products/prescription-edit/expansion-panel/expansion-panel.component';
 
 
 
@@ -95,6 +96,7 @@ import { PrescriptionEditComponent } from './component/products/prescription-edi
     PrescriptionComponent,
     ProductListTableComponent,
     PrescriptionEditComponent,
+    ExpansionPanelComponent,
   ],
   exports: [
     MatAutocompleteModule,

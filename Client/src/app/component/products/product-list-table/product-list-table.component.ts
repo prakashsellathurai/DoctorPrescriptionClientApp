@@ -3,6 +3,7 @@ import { MatPaginator, MatSort} from '@angular/material';
 import { PrescriptionService } from '../../../service/prescription.service';
 import { ProductService } from '../../../service/product.service';
 import { MatTableDataSource } from '@angular/material/table';
+import { Prescription } from '../../../model/prescription';
 
 
 const initialSelection = [];
@@ -14,7 +15,6 @@ const allowMultiSelect = true;
   styleUrls: ['./product-list-table.component.css']
 })
 export class ProductListTableComponent  {
- 
 
   products$;
   displayedColumns = ['select', 'title', 'price', 'description'];
@@ -44,8 +44,11 @@ export class ProductListTableComponent  {
   }
 
 
+
    onSelect(product) {
     this.Prescriptionservice.addToNote(product);
    }
-
+   OnDelete(product) {
+     this.Prescriptionservice.removefromNote(product);
+   }
 }
