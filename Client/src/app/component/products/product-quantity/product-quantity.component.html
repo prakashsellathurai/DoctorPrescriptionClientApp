@@ -1,0 +1,13 @@
+<div class="col">
+    <button mat-icon-button (click) = "onSelect()">
+        <mat-icon >add_circle_outline</mat-icon>
+      </button>                                  
+
+<span class="badge badge-primary badge-pill">
+{{prescription.getQuantity(product)}} 
+</span>
+
+<button  mat-icon-button (click) = "OnDelete()">
+    <mat-icon>remove_circle_outline</mat-icon>
+</button>
+</div>

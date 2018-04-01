@@ -1,8 +1,32 @@
 import { PrescriptionItem } from './PrescriptionItem';
+import { Medicine } from './medicine';
 
 export class Prescription {
-constructor(public items: PrescriptionItem[]) {
+    items: PrescriptionItem[] = [];
+constructor(public itemsMap: { [productId: string]: PrescriptionItem }) {
+    this.itemsMap = itemsMap || {};
+    // tslint:disable-next-line:forin
+    for (const productId in itemsMap) {
+        const item = itemsMap[productId];
+        const x = new PrescriptionItem();
+        Object.assign(x, item);
+        x.$key = productId;
+           this.items.push(x);
+        }
+    }
+
+get totalPrice() {
+    let sum = 0;
+// tslint:disable-next-line:forin
+  for (const productId in this.items) { sum += this.items[productId].totalPrice; }
+  return sum;
 }
+
+getQuantity(produtct: Medicine) {
+    const item = this.itemsMap[produtct.$key];
+    return item ? item.quantity : 0;
+}
+
 get productIds() {
     return Object.keys(this.items);
      }
@@ -19,7 +43,7 @@ get productIds() {
     // tslint:disable-next-line:forin
     for (const productId in this.items) {
      // tslint:disable-next-line:no-unused-expression
-     title.push(this.items[productId].product.title);
+     title.push(this.items[productId].title);
     }
     return title;
  }
@@ -29,7 +53,7 @@ get ItemTitleAndQuantity() {
     for (const productId in this.items) {
       ItemArray.push(
           {
-            title: this.items[productId].product ,
+            title: this.items[productId] ,
             quantity: this.items[productId].quantity
          }
         );
@@ -53,7 +77,7 @@ get Price() {
     // tslint:disable-next-line:forin
     for (const productId in this.items) {
      // tslint:disable-next-line:no-unused-expression
-     price.push(this.items[productId].product.price);
+     price.push(this.items[productId].price);
     }
     return price;
 }
@@ -62,7 +86,7 @@ get key() {
     // tslint:disable-next-line:forin
     for (const productId in this.items) {
      // tslint:disable-next-line:no-unused-expression
-     $key.push(this.items[productId].product.$key);
+     $key.push(this.items[productId].$key);
     }
     return $key;
 }
@@ -72,7 +96,7 @@ get products() {
     // tslint:disable-next-line:forin
     for (const productId in this.items) {
      // tslint:disable-next-line:no-unused-expression
-     product.push(this.items[productId].product);
+     product.push(this.items[productId]);
     }
     return product;
 }

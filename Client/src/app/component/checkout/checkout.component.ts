@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PrescriptionService } from '../../service/prescription.service';
 
 @Component({
   selector: 'app-checkout',
@@ -6,10 +7,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./checkout.component.css']
 })
 export class CheckoutComponent implements OnInit {
+prescription$;
+  constructor(private Prescriptionservice: PrescriptionService) { }
 
-  constructor() { }
-
-  ngOnInit() {
+  async ngOnInit() {
+    this.prescription$ = await this.Prescriptionservice.getPrescription();
   }
 
 }

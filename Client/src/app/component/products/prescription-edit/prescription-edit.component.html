@@ -1,9 +1,9 @@
 <ng-container>
     <mat-tab-group>
         <mat-tab label="Rx">
-            <div class="card">
-                <div class="card-body">
-                    <mat-accordion *ngIf="initialiseFetch()">
+            <div class="card" >
+                <div class="card-body" *ngIf="initialiseFetch()"  >
+                    <mat-accordion   *ngIf="show" >
                         <app-expansion-panel 
                             [(ExpansionPanelItemTitle$)]="ExpansionPanelItemTitle$"
                             [(ExpansionPanelItemQuantity$)]="ExpansionPanelItemQuantity$"
@@ -12,10 +12,16 @@
                   
                            <button
                            *ngIf="show"
-                           (click)="checkout()"
+                           routerLink="/checkout"
                             class="btn btn-primary ">
                              click to proceed
+                             <span class="badge badge-light">
+                                 {{ getTotalItems()}}
+                             </span>
                            </button>
+                           <ng-container #blankspace>
+
+                           </ng-container>
                 </div>
               </div>        
        </mat-tab>

@@ -1,9 +1,10 @@
 import { Medicine } from './medicine';
 
 export class PrescriptionItem {
-  constructor(init) {
-    init = new PrescriptionItem(init);
-  }
-  product: Medicine;
+  $key: string;
+  title: string;
+  price: number;
+  description: string;
   quantity: number;
+  get totalPrice() { return this.price * this.quantity; }
 }

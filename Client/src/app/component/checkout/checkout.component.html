@@ -1,3 +1,38 @@
-<p>
-  checkout works!
-</p>
+<h1>
+  Rx
+</h1>
+<ng-container *ngIf="prescription$ | async as prescription">
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Medicine</th>
+      <th>dosage</th>
+      <th>Quantity</th>
+    </tr>
+  </thead>
+  <tbody *ngIf="prescription.items">
+    <tr *ngFor="let item of prescription.items">
+      <td>
+        {{item.title}}
+      </td>
+      <td>
+          
+              <input matInput >
+          
+          
+      </td>
+      <td *ngIf="item.title"> 
+          <app-product-quantity [product]="item" [prescription]="prescription" ></app-product-quantity>
+      </td>
+    </tr>
+  </tbody>
+  <tfoot>
+    <tr>
+      <th></th>
+      <th></th>
+      <th *ngIf="prescription.totalItemsCount > 0"> TotalItems : {{prescription.totalItemsCount}}</th>
+    </tr>
+  </tfoot>
+</table>
+</ng-container>

@@ -34,6 +34,5 @@ show = false;
    }
   checkPrescriptionexistence() { return (this.initialiseFetch()) ? true : false; }
   getTotalItems() { return this.Prescription.totalItemsCount; }
-  checkout() {
-  }
+
 }

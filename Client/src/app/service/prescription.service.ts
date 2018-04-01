@@ -42,13 +42,18 @@ selectedItems: any[] = [];
   }
 
 
-private async updateItemQuantity(product: Medicine, change: number) {
+private async updateItem(product: Medicine, change: number) {
   const prescriptionId  = await this.GetOrCreatePrescriptionId();
   const item$ = this.getItem(prescriptionId, product.$key);
    item$.take(1).subscribe(item => {
        const quantity = (item.quantity || 0) + change;
        if (quantity === 0 || quantity < 0) { item$.remove(); } else {
-      item$.set({product: product , quantity: quantity});
+      item$.set({
+        // product: product
+        title: product.title,
+        price: product.price,
+        description: product.description,
+        quantity: quantity});
        }
    });
 }
@@ -70,7 +75,7 @@ UpdatePrescriptionByRawTitle(title: string , change: number) {
   const products = [];
   this.getAllProducts().subscribe(snapshots => {
  snapshots.forEach(snapshot => { products.push({ key: snapshot.key, value : snapshot.val()}); } );
- this.getProductbytitle(products, title).subscribe(product => this.updateItemQuantity(product , change));
+ this.getProductbytitle(products, title).subscribe(product => this.updateItem(product , change));
 });
 
 }
@@ -80,9 +85,9 @@ UpdatePrescriptionByRawTitle(title: string , change: number) {
     const findProduct = products.find(element => element.value.title === title);
    return  this.db.object('/products/' + findProduct.key);
   }
-  async removefromNote(product: Medicine) { this.updateItemQuantity(product , -1); }
+  async removefromNote(product: Medicine) { this.updateItem(product , -1); }
 
-  async addToNote(product: Medicine) { this.updateItemQuantity(product , 1); }
+  async addToNote(product: Medicine) { this.updateItem(product , 1); }
 
   addTitle(title) { this.UpdatePrescriptionByRawTitle(title , 1); }
 

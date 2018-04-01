@@ -74,6 +74,7 @@ import { PrescriptionComponent } from './component/prescription/prescription.com
 import { ProductListTableComponent } from './component/products/product-list-table/product-list-table.component';
 import { PrescriptionEditComponent } from './component/products/prescription-edit/prescription-edit.component';
 import { ExpansionPanelComponent } from './component/products/prescription-edit/expansion-panel/expansion-panel.component';
+import { ProductQuantityComponent } from './component/products/product-quantity/product-quantity.component';
 
 
 
@@ -97,6 +98,7 @@ import { ExpansionPanelComponent } from './component/products/prescription-edit/
     ProductListTableComponent,
     PrescriptionEditComponent,
     ExpansionPanelComponent,
+    ProductQuantityComponent,
   ],
   exports: [
     MatAutocompleteModule,
