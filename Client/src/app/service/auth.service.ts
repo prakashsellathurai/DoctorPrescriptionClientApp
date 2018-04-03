@@ -30,7 +30,7 @@ this.angularFireAuth.auth.signOut();
 get appuser$(): Observable<AppUser> {
   return this.user$
   .switchMap( user => {
-    if (user) { return this.Userservice.get(user.uid);}
+    if (user) { return this.Userservice.get(user.uid); }
   return Observable.of(null);
   });
 }

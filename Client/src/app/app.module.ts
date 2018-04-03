@@ -81,7 +81,7 @@ import { FormBuilder } from '@angular/forms';
 import { StepperComponent } from './component/checkout/stepper/stepper.component';
 import { QrGenService } from './service/qr-gen.service';
 import { NgxQRCodeModule } from 'ngx-qrcode2';
-
+import { MyPrescriptionService } from './service/myprescription.service';
 
 @NgModule({
   declarations: [
@@ -232,7 +232,8 @@ BrowserModule,
     CategoryServiceService,
     ProductService,
     PrescriptionService,
-    QrGenService
+    QrGenService,
+    MyPrescriptionService
   ],
   bootstrap: [AppComponent]
 })

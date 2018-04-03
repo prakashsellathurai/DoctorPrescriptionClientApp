@@ -1,1 +1,28 @@
 
+<mat-card *ngIf="transaction$">
+    <ng-container *ngFor="let qr of qr;let i=index" >
+            <mat-accordion >
+                    <mat-expansion-panel>
+                      <mat-expansion-panel-header>
+                        <mat-panel-title>
+                    {{i}}.
+                          {{qr.dateplaced | date:'fullDate'}}
+                          {{qr.dateplaced | date:'shortTime'}}
+                        </mat-panel-title>
+                        <mat-panel-description>
+                        Patient Name: 
+                        </mat-panel-description>
+                      </mat-expansion-panel-header>
+                      <mat-list *ngFor="let item of qr.items">
+                            <mat-list-item>
+                                {{item.product.name}}
+                            </mat-list-item>
+                            <mat-divider></mat-divider>
+                          </mat-list>
+                 
+                   </mat-expansion-panel>
+                  </mat-accordion>
+                
+    </ng-container>
+      
+</mat-card>

@@ -30,7 +30,7 @@ export class PrintpageComponent implements OnInit , OnDestroy {
     // tslint:disable-next-line:no-shadowed-variable
     this.subscription = await prescription.subscribe(prescription => {
        this.prescription = prescription;
-       this.usersubscription = this.authservice.user$.subscribe(user => { 
+       this.usersubscription = this.authservice.user$.subscribe(user => {
          this.userId = user.uid;
          this.routesubscription = this.route.params.subscribe(params => {
             this.patient_details = params;
@@ -49,7 +49,7 @@ export class PrintpageComponent implements OnInit , OnDestroy {
   }
   createQr() {
     const qr = {
-      doctor: this.userId,
+      userId: this.userId,
       dateplaced: new Date().getTime(),
       patient_details: this.patient_details,
       items: this.prescription.items.map(i => {
