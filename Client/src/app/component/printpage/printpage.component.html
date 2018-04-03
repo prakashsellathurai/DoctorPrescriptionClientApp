@@ -1,3 +1,9 @@
-<p>
-  printpage works!
-</p>
+
+
+<button onclick="window.print()">Print Qr</button>
+      <ngx-qrcode 
+      *ngIf = "qrString"
+      [qrc-value] = "qrString"
+      qrc-errorCorrectionLevel = "L"
+      qrc-version = "40"></ngx-qrcode>
+  

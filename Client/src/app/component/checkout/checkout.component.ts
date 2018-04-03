@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-checkout',
@@ -7,12 +8,14 @@ import { Component } from '@angular/core';
 })
 export class CheckoutComponent  {
   user = localStorage.getItem('user');
-  constructor() {
+  patientDetails = {};
+  constructor(private router: Router) {
   }
   HandlePatientDetail(patientDetails) {
-    console.log(patientDetails);
+this.patientDetails = patientDetails;
   }
 
   generateQr() {
+    this.router.navigate(['/printpage', this.patientDetails]);
   }
 }

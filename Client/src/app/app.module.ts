@@ -79,7 +79,8 @@ import { FinalEdittableComponent } from './component/checkout/final-edittable/fi
 import { PatientDetailEditComponent } from './component/checkout/patient-detail-edit/patient-detail-edit.component';
 import { FormBuilder } from '@angular/forms';
 import { StepperComponent } from './component/checkout/stepper/stepper.component';
-
+import { QrGenService } from './service/qr-gen.service';
+import { NgxQRCodeModule } from 'ngx-qrcode2';
 
 
 @NgModule({
@@ -141,7 +142,7 @@ import { StepperComponent } from './component/checkout/stepper/stepper.component
     MatTooltipModule,
   ],
   imports: [
-  BrowserModule,
+BrowserModule,
   FormsModule,
   ReactiveFormsModule,
    MatAutocompleteModule,
@@ -177,6 +178,7 @@ import { StepperComponent } from './component/checkout/stepper/stepper.component
     MatToolbarModule,
     MatTooltipModule,
     BrowserAnimationsModule,
+    NgxQRCodeModule,
   DataTableModule,
   AngularFireDatabaseModule,
   AngularFireAuthModule,
@@ -229,7 +231,8 @@ import { StepperComponent } from './component/checkout/stepper/stepper.component
     AdminAuthGuardService,
     CategoryServiceService,
     ProductService,
-    PrescriptionService
+    PrescriptionService,
+    QrGenService
   ],
   bootstrap: [AppComponent]
 })

@@ -19,7 +19,7 @@ isAdmin() {
 
 }
 login() {
-let returnUrl =  this.route.snapshot.queryParamMap.get('returnUrl') || '/';
+const returnUrl =  this.route.snapshot.queryParamMap.get('returnUrl') || '/';
 localStorage.setItem('returnUrl', returnUrl);
   this.angularFireAuth.auth.signInWithRedirect(new firebase.auth.GoogleAuthProvider());
 }

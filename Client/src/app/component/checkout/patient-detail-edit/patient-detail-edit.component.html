@@ -5,21 +5,36 @@
 <form #f="ngForm" (change)="valueChanged(f.value)">
     <div class="form-group">
       <label for=""><h6>Name</h6></label>
-      <input #name="ngModel" name="name" [(ngModel)]="PatientDetail.name"  type="text" class="form-control"  value=''>
+      <input #name="ngModel" name="name" [(ngModel)]="PatientDetail.name"  type="text" class="form-control"  value='' required>
       <div class="alert alert-danger" *ngIf="name.touched && name.invalid">
         <div *ngIf="name.errors.required">Name is required.</div>
       </div>
     </div>
     <div class="form-group">
       <label for=""><h6>Gender</h6></label>
-      <input #gender="ngModel" name="gender" [(ngModel)]="PatientDetail.gender" type="text" class="form-control" value='' >
-     
+      <br>
+    <mat-radio-group
+    #gender="ngModel" name="gender" [(ngModel)]="PatientDetail.gender" type="text">
+        <mat-radio-button  (change)="getgender('male')" value="male">male</mat-radio-button>
+        <mat-radio-button  (change)="getgender('female')" value="female">female</mat-radio-button>
+        <mat-radio-button  (change)="getgender('other')" value="other">other</mat-radio-button>
+      </mat-radio-group>
     </div>
     
     <div class="form-group">
-      <label for=""><h6>DOB</h6></label>
-      <input #dob="ngModel" name="dob" [(ngModel)]="PatientDetail.dob" type="text" class="form-control"  value=''>
-     
+      <h6>Dob</h6>
+      <mat-form-field class="example-full-width">
+        <input matInput
+        #dob="ngModel" 
+        name = "dob"
+        (dateInput)="getDate($event.value)"
+        (dataChange)="getDate($event.value)"
+         [matDatepicker]="picker" 
+         [(ngModel)]="PatientDetail.dob"
+        placeholder="Choose a date">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker touchUi="true" #picker></mat-datepicker>
+      </mat-form-field>
     </div>
   
   </form>
