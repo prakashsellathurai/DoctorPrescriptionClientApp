@@ -13,7 +13,7 @@ export class AdminProductsComponent implements OnInit, OnDestroy {
 products: Medicine[];
 subscription: Subscription;
 tableResource: DataTableResource<Medicine>;
-items: Medicine[] = [];
+items: Medicine[];
 itemCount: number;
 
   constructor(private productService: ProductService) {

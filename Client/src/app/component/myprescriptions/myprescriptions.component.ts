@@ -24,7 +24,6 @@ items = [];
     this.qr.push(element);
   });
   console.log(val);
-  
       return val; });
    }
 
@@ -32,3 +31,5 @@ items = [];
   }
 
 }
+
+
