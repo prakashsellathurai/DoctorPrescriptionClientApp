@@ -14,7 +14,10 @@ appUser: AppUser;
   constructor(private auth: AuthService) {
     auth.appuser$.subscribe(appUser => {
        this.appUser = appUser;
-       localStorage.setItem('user', this.appUser.name);
+       if(this.appUser) {
+        localStorage.setItem('user', this.appUser.name);
+       }
+      
       });
   }
 

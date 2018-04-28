@@ -20,6 +20,6 @@ export class ProductsComponent implements OnInit, OnDestroy {
                      });
      }
        ngOnDestroy() {
-      this.subscription.unsubscribe();
+     // this.subscription.unsubscribe();
     }
   }

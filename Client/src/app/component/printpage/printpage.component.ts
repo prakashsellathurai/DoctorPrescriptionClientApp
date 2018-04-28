@@ -34,7 +34,7 @@ export class PrintpageComponent implements OnInit , OnDestroy {
          this.userId = user.uid;
          this.routesubscription = this.route.params.subscribe(params => {
             this.patient_details = params;
-             console.log(this.userId);
+           //  console.log(this.userId);
               this.createQr();
           });
         });
@@ -49,6 +49,7 @@ export class PrintpageComponent implements OnInit , OnDestroy {
   }
   createQr() {
     const qr = {
+      status:"pending",
       userId: this.userId,
       dateplaced: new Date().getTime(),
       patient_details: this.patient_details,
@@ -65,11 +66,31 @@ export class PrintpageComponent implements OnInit , OnDestroy {
       })
     };
 
-const result = this.qrService.storeQr(qr);
-if (result) {
-  console.log(result);
-  this.qrString = JSON.stringify(qr);
-}
+ this.qrService.storeQr(qr).then(val =>{
+  console.log(val);
+  this.qrString = JSON.stringify(val);
+ });
+
   }
 
+
+  print(): void {
+    let printContents, popupWin;
+    printContents = document.getElementById('print-section').innerHTML;
+    popupWin = window.open('', '_blank', 'top=0,left=0,height=100%,width=auto');
+    popupWin.document.open();
+    popupWin.document.write(`
+      <html>
+        <head>
+          <title>Print tab</title>
+          <style>
+          //........Customized style.......
+          </style>
+        </head>
+    <body onload="window.print();window.close()">${printContents}</body>
+      </html>`
+    );
+    popupWin.document.close();
+    
+}
 }

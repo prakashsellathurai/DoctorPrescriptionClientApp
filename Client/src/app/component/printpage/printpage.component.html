@@ -1,8 +1,10 @@
 
-
+<div id="print-section">
       <ngx-qrcode 
       *ngIf = "qrString"
       [qrc-value] = "qrString"
       qrc-errorCorrectionLevel = "L"
       qrc-version = "10s"></ngx-qrcode>
-  
+
+</div>
+<button (click)="print()">print</button>
