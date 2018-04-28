@@ -22,6 +22,7 @@ auth.user$.subscribe(user => {
     localStorage.removeItem('returnUrl');
     router.navigateByUrl(returnUrl);
   }
+  
 });
 }
 }

@@ -1,3 +1,95 @@
-<p>
-  dashboard works!
-</p>
+<div class="main-content">
+  <div class="container-fluid">
+    <div class="row">
+        <div class="col-3">
+            <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title">Total number of devices</h5>
+                  <h1 class="card-text">
+                    {{numberOFDevices}}
+                  </h1>
+                </div>
+              </div>
+              
+        </div>
+      <div class="col-3">
+          <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">Number of devices online </h5>
+                <h1 class="card-text">
+                    {{numberOfDevicesOnline}}
+                  </h1>
+              </div>
+            </div>
+            
+      </div>
+      <div class="col-3">
+          <div class="card" >
+              <div class="card-body">
+                <h5 class="card-title"> Total number of users </h5>
+                &nbsp;
+                <h1 class="card-text">
+                  {{TotslNumberOfUsers }}
+                  </h1>
+              </div>
+            </div>
+            
+      </div>
+      <div class="col-3">
+          <div class="card" >
+              <div class="card-body">
+                <h5 class="card-title">Total NUmber Of  Medicines Available</h5>
+                <h1 class="card-text">
+                    {{number_of_medicines_available}}
+                  </h1>
+              </div>
+            </div>
+            
+      </div>
+    </div>
+    &nbsp;
+ <div class="row">
+   <div class="col">
+      <mat-accordion>
+          <mat-expansion-panel *ngFor="let device of  device$; let i = index">
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                  device Number  :  {{device.$key }} 
+              </mat-panel-title>
+              <mat-panel-description>
+                Availability : {{device.availability}} 
+              </mat-panel-description>
+            </mat-expansion-panel-header>
+            <table class="table table-hover table-dark" *ngFor="let item of device.medicines; let j=index">
+                <thead>
+                  <tr>
+                    <th scope="col">{{j+1}}</th>
+                    <th scope="col">Medicine</th>
+                    <th scope="col">count</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">1</th>
+                    <td>
+                    {{item.name}}
+                    </td>
+                    <td>
+                      {{item.count}}
+                    </td>
+                  </tr>
+                 
+                </tbody>
+              </table>
+          </mat-expansion-panel>
+             </mat-accordion>
+        
+
+   </div>
+  
+ </div>
+     
+ 
+  
+  </div>
+</div>

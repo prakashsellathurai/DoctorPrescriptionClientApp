@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { PrescriptionService } from '../../service/prescription.service';
 import { MyPrescriptionService } from '../../service/myprescription.service';
 import { AuthService } from '../../service/auth.service';
+import { MyPrescription } from '../../model/myprescription';
 
 
 @Component({
@@ -11,7 +12,7 @@ import { AuthService } from '../../service/auth.service';
 })
 export class MyprescriptionsComponent implements OnInit {
 transaction$;
-qr = [];
+qr: Array<MyPrescription> = [];
 items = [];
   constructor(
     private auth: AuthService,
@@ -23,8 +24,14 @@ items = [];
   val.forEach(element => {
     this.qr.push(element);
   });
-  console.log(val);
-      return val; });
+  console.log(this.qr);
+  this.qr.forEach(element => {
+    this.items.push(element.items);
+  });
+  console.log(this.items);
+      return this.qr;
+
+    });
    }
 
   ngOnInit() {
