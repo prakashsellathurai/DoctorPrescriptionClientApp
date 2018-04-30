@@ -27,6 +27,7 @@ jobs:
           - v1-dependencies-
 
       - run: npm install
+          
 
       - save_cache:
           paths:
@@ -34,6 +35,7 @@ jobs:
           key: v1-dependencies-{{ checksum "package.json" }}
         
       # run tests!
-      - run: npm start
+      - run:   ng build --prod --base-href="https://prakashsellathurai.github.io/DoctorPrescriptionClientApp"
+            angular-cli-ghpages
 
 

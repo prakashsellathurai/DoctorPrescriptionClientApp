@@ -11,7 +11,12 @@ import { product } from '../../../model/Product';
 })
 export class ProductFormComponent implements OnInit {
 categories$;
-product:product;
+product:product= {
+  title:"",
+  price:0,
+  description:""
+};
+show:boolean=false;
 id;
   constructor(
     private router: Router,
@@ -21,7 +26,7 @@ id;
     this.categories$ = categoriesService.getCategories();
     this.id = this.route.snapshot.paramMap.get('id');
     if (this.id) {
-this.productservice.get(this.id).take(1).subscribe(p => this.product = p );
+this.productservice.get(this.id).take(1).subscribe(p => { this.product = p; } );
     }
   }
 save(product) {
