@@ -1,10 +1,18 @@
 
-<div id="print-section">
-      <ngx-qrcode 
-      *ngIf = "qrString"
-      [qrc-value] = "qrString"
-      qrc-errorCorrectionLevel = "L"
-      qrc-version = "10s"></ngx-qrcode>
 
+<div class="row">
+      <div class="col-4">
+                  <div id="print-section">
+                              <ngx-qrcode 
+                              *ngIf = "qrString"
+                              [qrc-value] = "qrString"
+                              qrc-errorCorrectionLevel = "L"
+                              qrc-version = "10s"></ngx-qrcode>
+                        
+                        </div>
+                        <button (click)="print()">print</button>
+      </div>
+      <div class="col">
+      <qr-report   *ngIf = "qrString" [(details)]="qrString"></qr-report>
+      </div>
 </div>
-<button (click)="print()">print</button>

@@ -1,27 +1,42 @@
-
-<div class="card">
-    <div class="card-body">
-      <h4>Patient Details</h4>
+<div class="col">
+ 
+      <h3>Patient Details</h3>
+      <hr>
 <form #f="ngForm" (change)="valueChanged(f.value)">
     <div class="form-group">
-      <label for=""><h6>Name</h6></label>
-      <input #name="ngModel" name="name" [(ngModel)]="PatientDetail.name"  type="text" class="form-control"  value='' required>
-      <div class="alert alert-danger" *ngIf="name.touched && name.invalid">
-        <div *ngIf="name.errors.required">Name is required.</div>
-      </div>
+      <label for=""><h6>Name</h6>
+        <input #name="ngModel" name="name" [(ngModel)]="PatientDetail.name"  type="text" class="form-control"  value='' required>
+        <div class="alert alert-danger" *ngIf="name.touched && name.invalid">
+          <div *ngIf="name.errors.required">Name is required.</div>
+        </div>
+      </label>
+ 
     </div>
     <div class="form-group">
-      <label for=""><h6>Gender</h6></label>
+      <label for=""><h6>Gender</h6>
+        <mat-radio-group
+        #gender="ngModel" name="gender" [(ngModel)]="PatientDetail.gender" type="text">
+            <mat-radio-button  (change)="getgender('male')" value="male">male</mat-radio-button>
+            <mat-radio-button  (change)="getgender('female')" value="female">female</mat-radio-button>
+            <mat-radio-button  (change)="getgender('other')" value="other">other</mat-radio-button>
+          </mat-radio-group>
+        </label>
       <br>
-    <mat-radio-group
-    #gender="ngModel" name="gender" [(ngModel)]="PatientDetail.gender" type="text">
-        <mat-radio-button  (change)="getgender('male')" value="male">male</mat-radio-button>
-        <mat-radio-button  (change)="getgender('female')" value="female">female</mat-radio-button>
-        <mat-radio-button  (change)="getgender('other')" value="other">other</mat-radio-button>
-      </mat-radio-group>
+ 
     </div>
-    
     <div class="form-group">
+      <label for=""><h6>UUID</h6>
+        <input #uuid="ngModel" name="uuid" [(ngModel)]="PatientDetail.uuid"  type="text" class="form-control"  value='' >
+       </label>
+  
+    </div>
+    <div class="form-group">
+        <label for=""><h6>Diagnosed Disease</h6>
+          <input #DiagnosedDisease="ngModel" name="DiagnosedDisease" [(ngModel)]="PatientDetail.DiagnosedDisease"  type="text" class="form-control"  value=''>
+        </label>
+    
+      </div>
+<!-- <div class="form-group">
       <h6>Dob</h6>
       <mat-form-field class="example-full-width">
         <input matInput
@@ -36,8 +51,8 @@
         <mat-datepicker touchUi="true" #picker></mat-datepicker>
       </mat-form-field>
     </div>
-  
+  -->
   </form>
-    </div>
-    </div>
+  
     
+</div>

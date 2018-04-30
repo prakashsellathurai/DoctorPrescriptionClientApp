@@ -5,7 +5,9 @@
       <div class="row">
       <div class="col">
         <mat-card>
+           <h5>
             Doctor : {{user}}
+           </h5> 
         </mat-card>
          
         
@@ -14,24 +16,26 @@
 <mat-card>
     <div class="row">
         
-             <div class="col-4">
+             <div class="col">
             
             <app-patient-detail-edit (patientDetailEdit)="HandlePatientDetail($event)"></app-patient-detail-edit>
-            <button (click)="generateQr()"class="btn btn-primary" style="margin-top:10px;">
+        
+    
+                <ng-container >
+                    <app-final-edittable ></app-final-edittable>
+                    </ng-container>
+                 
+               
+        
+            <button (click)="generateQr()"class="btn btn-primary" style="margin-top:10px;  text-align: right;">
                 Proceed
               </button>
             
      
       </div>
-      <div class="col">
-    
-          <ng-container >
-              <app-final-edittable ></app-final-edittable>
-              </ng-container>
-           
-         
-    </div>
+ 
   </div>
+
   </mat-card>
      
     

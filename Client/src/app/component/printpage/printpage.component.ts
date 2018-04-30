@@ -5,6 +5,7 @@ import { Subscription } from 'rxjs/Subscription';
 import { QrGenService } from '../../service/qr-gen.service';
 import { AuthService } from '../../service/auth.service';
 import { ActivatedRoute } from '@angular/router';
+import { Qr } from '../../model/qr';
 
 @Component({
   selector: 'app-printpage',
@@ -19,6 +20,7 @@ export class PrintpageComponent implements OnInit , OnDestroy {
   userId: string;
   patient_details;
   qrString: string;
+QR;
   constructor(
     private prescriptionservice: PrescriptionService,
     private qrService: QrGenService,
@@ -67,8 +69,8 @@ export class PrintpageComponent implements OnInit , OnDestroy {
     };
 
  this.qrService.storeQr(qr).then(val =>{
-  console.log(val);
-  this.qrString = JSON.stringify(val);
+  this.qrString = val;
+  this.QR = qr;
  });
 
   }

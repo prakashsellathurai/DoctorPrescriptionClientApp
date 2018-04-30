@@ -1,0 +1,49 @@
+
+<div class="col" >
+    <div class="card">
+      <div class="card-body">
+  <ng-container *ngIf="medicines  as prescription" >
+    <div class="row" >
+      <div class="col">
+         <h3>
+          Rx
+        </h3></div>
+      
+    </div>
+      
+      <table class="table" >
+          <thead>
+            <tr>
+              <th >Medicine</th>
+              <th class="text-center"><!--Dosage--></th> 
+              <th class="text-center">Quantity</th>
+            </tr>
+          </thead>
+          <tbody >
+            <tr *ngFor="let item of prescription">
+              <td >
+                {{item.product.title}}
+              </td>
+              <td class="text-center">
+                  {{item.quantity}}
+              </td>
+          </tbody>
+          <tfoot>
+        
+            <tr>
+                <th class="text-center" >
+                    TotalPrice :
+                        </th>
+              <th >
+              
+              </th>
+         
+              <th  class="text-center" *ngIf="prescription.totalItemsCount > 0"> TotalItems : {{prescription.totalItemsCount}}</th>
+            </tr>
+          </tfoot>
+        </table>
+  </ng-container>
+  </div>
+  </div>
+  </div>
+  

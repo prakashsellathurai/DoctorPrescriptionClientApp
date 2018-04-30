@@ -1,0 +1,11 @@
+<div class="card">
+  <div class="card-body" *ngIf="qrDetail$ | async as qr" >
+Doctor  : {{Doctor}}
+Patient Details 
+name: {{qr.patient_details.name}}
+gender: {{qr.patient_details.gender}}
+UUID: {{qr.patient_details.uuid}}
+Diagnosed Disease: {{qr.patient_details.DiagnosedDisease}}
+<app-medicine-table [(items)]="qr.items"></app-medicine-table>
+  </div>
+</div>
