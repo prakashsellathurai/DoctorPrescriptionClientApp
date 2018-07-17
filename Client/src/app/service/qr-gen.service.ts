@@ -16,6 +16,9 @@ async storeQr(qr) {
   }
 
 }
+ getQr(key) {
+  return  this.db.object('/qr/' + key);
+}
 
 
 

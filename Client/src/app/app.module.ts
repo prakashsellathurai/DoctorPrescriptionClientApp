@@ -83,6 +83,9 @@ import { QrGenService } from './service/qr-gen.service';
 import { NgxQRCodeModule } from 'ngx-qrcode2';
 import { MyPrescriptionService } from './service/myprescription.service';
 import { DashboardService } from './service/dash-board.service';
+import { QrReportComponent } from './component/printpage/qr-report/qr-report.component';
+import { MedicineTableComponent } from './component/printpage/medicine-table/medicine-table.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -106,6 +109,9 @@ import { DashboardService } from './service/dash-board.service';
     FinalEdittableComponent,
     PatientDetailEditComponent,
     StepperComponent,
+    QrReportComponent,
+    MedicineTableComponent,
+
   ],
   exports: [
     MatAutocompleteModule,

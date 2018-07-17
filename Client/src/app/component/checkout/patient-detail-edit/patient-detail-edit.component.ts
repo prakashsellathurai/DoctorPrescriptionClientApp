@@ -10,7 +10,8 @@ export class PatientDetailEditComponent  {
   PatientDetail = {
     name: '',
     dob: '',
-    gender: ''
+    gender: '',
+    DiagnosedDisease:''
 
   };
   form: FormGroup;

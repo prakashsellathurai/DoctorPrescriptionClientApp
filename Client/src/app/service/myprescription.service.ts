@@ -6,7 +6,7 @@ export class MyPrescriptionService {
 
   constructor(private db: AngularFireDatabase) { }
   getAllQr() {
-return this.db.list('/qr/s');
+return this.db.list('/qr/');
   }
 getQrByDoc(userId: string) {
   return this.db.list('/qr', {
