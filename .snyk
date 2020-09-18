@@ -63,6 +63,8 @@ patch:
         patched: '2020-09-18T10:10:58.358Z'
     - firebase-tools > @google-cloud/functions-emulator > @google-cloud/storage > gcs-resumable-upload > google-auto-auth > google-auth-library > gcp-metadata > extend:
         patched: '2020-09-18T10:10:58.358Z'
+    - snyk > proxy-agent > pac-proxy-agent > get-uri > extend:
+        patched: '2020-09-18T10:12:40.061Z'
   'npm:hoek:20180212':
     - firebase-tools > jsonwebtoken > joi > hoek:
         patched: '2020-09-18T10:10:58.358Z'
@@ -203,6 +205,8 @@ patch:
         patched: '2020-09-18T10:10:58.358Z'
     - firebase-tools > @google-cloud/functions-emulator > @google-cloud/storage > @google-cloud/common > split-array-stream > async > lodash:
         patched: '2020-09-18T10:10:58.358Z'
+    - firebase-tools > superstatic > nash > lodash:
+        patched: '2020-09-18T10:12:40.061Z'
   'npm:lodash:20180130':
     - firebase-tools > @google-cloud/functions-emulator > cli-table2 > lodash:
         patched: '2020-09-18T10:10:58.358Z'
