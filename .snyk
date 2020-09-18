@@ -1,0 +1,87 @@
+# Snyk (https://snyk.io) policy file, patches or ignores known vulnerabilities.
+version: v1.19.0
+ignore: {}
+# patches apply the minimum changes required to fix a vulnerability
+patch:
+  SNYK-JS-AXIOS-174505:
+    - firebase-tools > @google-cloud/functions-emulator > @google-cloud/storage > @google-cloud/common > google-auto-auth > gcp-metadata > axios:
+        patched: '2020-09-18T10:23:57.617Z'
+    - firebase-tools > @google-cloud/functions-emulator > @google-cloud/storage > gcs-resumable-upload > google-auto-auth > gcp-metadata > axios:
+        patched: '2020-09-18T10:23:57.617Z'
+    - firebase-tools > @google-cloud/functions-emulator > @google-cloud/storage > @google-cloud/common > google-auto-auth > google-auth-library > axios:
+        patched: '2020-09-18T10:23:57.617Z'
+    - firebase-tools > @google-cloud/functions-emulator > @google-cloud/storage > gcs-resumable-upload > google-auto-auth > google-auth-library > axios:
+        patched: '2020-09-18T10:23:57.617Z'
+    - firebase-tools > @google-cloud/functions-emulator > @google-cloud/storage > @google-cloud/common > google-auto-auth > google-auth-library > gcp-metadata > axios:
+        patched: '2020-09-18T10:23:57.617Z'
+    - firebase-tools > @google-cloud/functions-emulator > @google-cloud/storage > gcs-resumable-upload > google-auto-auth > google-auth-library > gcp-metadata > axios:
+        patched: '2020-09-18T10:23:57.617Z'
+    - firebase-tools > @google-cloud/functions-emulator > @google-cloud/storage > @google-cloud/common > google-auto-auth > google-auth-library > gtoken > axios:
+        patched: '2020-09-18T10:23:57.617Z'
+    - firebase-tools > @google-cloud/functions-emulator > @google-cloud/storage > gcs-resumable-upload > google-auto-auth > google-auth-library > gtoken > axios:
+        patched: '2020-09-18T10:23:57.617Z'
+  'npm:extend:20180424':
+    - firebase-tools > request > extend:
+        patched: '2020-09-18T10:23:57.617Z'
+    - firebase-tools > universal-analytics > request > extend:
+        patched: '2020-09-18T10:23:57.617Z'
+    - firebase-tools > @google-cloud/functions-emulator > @google-cloud/storage > request > extend:
+        patched: '2020-09-18T10:23:57.617Z'
+    - firebase-tools > @google-cloud/functions-emulator > @google-cloud/storage > gcs-resumable-upload > request > extend:
+        patched: '2020-09-18T10:23:57.617Z'
+    - firebase-tools > @google-cloud/functions-emulator > @google-cloud/storage > gcs-resumable-upload > google-auto-auth > request > extend:
+        patched: '2020-09-18T10:23:57.617Z'
+  'npm:hoek:20180212':
+    - firebase-tools > jsonwebtoken > joi > hoek:
+        patched: '2020-09-18T10:23:57.617Z'
+    - firebase-tools > request > hawk > hoek:
+        patched: '2020-09-18T10:23:57.617Z'
+    - firebase-tools > jsonwebtoken > joi > topo > hoek:
+        patched: '2020-09-18T10:23:57.617Z'
+    - firebase-tools > request > hawk > boom > hoek:
+        patched: '2020-09-18T10:23:57.617Z'
+    - firebase-tools > request > hawk > sntp > hoek:
+        patched: '2020-09-18T10:23:57.617Z'
+    - firebase-tools > universal-analytics > request > hawk > hoek:
+        patched: '2020-09-18T10:23:57.617Z'
+    - firebase-tools > request > hawk > cryptiles > boom > hoek:
+        patched: '2020-09-18T10:23:57.617Z'
+    - firebase-tools > universal-analytics > request > hawk > boom > hoek:
+        patched: '2020-09-18T10:23:57.617Z'
+    - firebase-tools > universal-analytics > request > hawk > sntp > hoek:
+        patched: '2020-09-18T10:23:57.617Z'
+    - firebase-tools > universal-analytics > request > hawk > cryptiles > boom > hoek:
+        patched: '2020-09-18T10:23:57.617Z'
+    - firebase-tools > @google-cloud/functions-emulator > @google-cloud/storage > gcs-resumable-upload > request > hawk > hoek:
+        patched: '2020-09-18T10:23:57.617Z'
+    - firebase-tools > @google-cloud/functions-emulator > @google-cloud/storage > gcs-resumable-upload > request > hawk > boom > hoek:
+        patched: '2020-09-18T10:23:57.617Z'
+    - firebase-tools > @google-cloud/functions-emulator > @google-cloud/storage > gcs-resumable-upload > request > hawk > sntp > hoek:
+        patched: '2020-09-18T10:23:57.617Z'
+    - firebase-tools > @google-cloud/functions-emulator > @google-cloud/storage > gcs-resumable-upload > google-auto-auth > request > hawk > hoek:
+        patched: '2020-09-18T10:23:57.617Z'
+    - firebase-tools > @google-cloud/functions-emulator > @google-cloud/storage > gcs-resumable-upload > request > hawk > cryptiles > boom > hoek:
+        patched: '2020-09-18T10:23:57.617Z'
+    - firebase-tools > @google-cloud/functions-emulator > @google-cloud/storage > gcs-resumable-upload > google-auto-auth > request > hawk > boom > hoek:
+        patched: '2020-09-18T10:23:57.617Z'
+    - firebase-tools > @google-cloud/functions-emulator > @google-cloud/storage > gcs-resumable-upload > google-auto-auth > request > hawk > sntp > hoek:
+        patched: '2020-09-18T10:23:57.617Z'
+    - firebase-tools > @google-cloud/functions-emulator > @google-cloud/storage > gcs-resumable-upload > google-auto-auth > request > hawk > cryptiles > boom > hoek:
+        patched: '2020-09-18T10:23:57.617Z'
+  SNYK-JS-LODASH-567746:
+    - firebase-tools > lodash:
+        patched: '2020-09-18T10:23:57.617Z'
+  'npm:moment:20170905':
+    - firebase > jsonwebtoken > joi > moment:
+        patched: '2020-09-18T10:23:57.617Z'
+  'npm:stringstream:20180511':
+    - firebase-tools > request > stringstream:
+        patched: '2020-09-18T10:23:57.617Z'
+    - firebase-tools > universal-analytics > request > stringstream:
+        patched: '2020-09-18T10:23:57.617Z'
+    - firebase-tools > @google-cloud/functions-emulator > @google-cloud/storage > request > stringstream:
+        patched: '2020-09-18T10:23:57.617Z'
+    - firebase-tools > @google-cloud/functions-emulator > @google-cloud/storage > gcs-resumable-upload > request > stringstream:
+        patched: '2020-09-18T10:23:57.617Z'
+    - firebase-tools > @google-cloud/functions-emulator > @google-cloud/storage > gcs-resumable-upload > google-auto-auth > request > stringstream:
+        patched: '2020-09-18T10:23:57.617Z'
