@@ -10,6 +10,7 @@ export class PatientDetailEditComponent  {
   PatientDetail = {
     name: '',
     dob: '',
+    uuid: '0',
     gender: '',
     DiagnosedDisease:''
 
