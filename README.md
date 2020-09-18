@@ -1,4 +1,6 @@
 # Prescription Generator:
+![GitHub Workflow Status](https://img.shields.io/github/workflow/status/prakashsellathurai/DoctorPrescriptionClientApp/workflow%20name?style=plastic)
+
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.7.3.
 
