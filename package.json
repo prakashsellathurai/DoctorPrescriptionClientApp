@@ -30,7 +30,7 @@
     "angular5-data-table": "^0.5.1",
     "angularfire2": "^4.0.0-rc.1",
     "bootstrap": "^4.0.0",
-    "chart.js": "^2.7.2",
+    "chart.js": "^2.9.4",
     "core-js": "^2.4.1",
     "d3": "^5.0.0",
     "datatables.net": "^1.10.16",
