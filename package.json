@@ -37,6 +37,7 @@
     "datatables.net-dt": "^1.11.0",
     "firebase": "^4.2.0",
 
+
     "firebase-tools": "^8.10.0",
 
     "g": "^2.0.1",
